@@ -318,7 +318,7 @@ header {
    MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO)
    ========================================================================== */
 .card-image-real {
-    height: 280px; /* Misma altura fija y simétrica para todas las fotos */
+    height: 280px; /* Misma altura fija para todas las fotos */
     width: 100%;
     overflow: hidden;
     background-color: #f4ebfa;
@@ -327,13 +327,13 @@ header {
 .card-image-real img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Evita que la foto se deforme o estire */
-    object-position: center; /* Enfoca exactamente el centro de las flores y figuras */
+    object-fit: cover !important; /* El !important obliga a la página a aplicarlo sí o sí */
+    object-position: center; 
     transition: transform 0.5s ease;
 }
 
 .catalog-item:hover .card-image-real img {
-    transform: scale(1.08); /* Zoom sutil premium */
+    transform: scale(1.08); 
 }
 
 /* Sección CTA - Solicitar Pedido */
@@ -500,25 +500,4 @@ footer {
         bottom: 75px;
         right: 25px;
     }
-}
-/* ==========================================================================
-   MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO)
-   ========================================================================== */
-.card-image-real {
-    height: 280px; /* Misma altura fija para todas las fotos */
-    width: 100%;
-    overflow: hidden;
-    background-color: #f4ebfa;
-}
-
-.card-image-real img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover !important; /* El !important obliga a la página a aplicarlo sí o sí */
-    object-position: center; 
-    transition: transform 0.5s ease;
-}
-
-.catalog-item:hover .card-image-real img {
-    transform: scale(1.08); 
 }
