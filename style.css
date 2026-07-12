@@ -164,7 +164,7 @@ header {
     padding: 0 50px;
 }
 
-/* Botones Base */
+/* Botones Base (Corregido y Agrupado) */
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -172,7 +172,8 @@ header {
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary {
+/* Aquí nos aseguramos de que los TRES botones hereden el comportamiento de bloque idéntico */
+.btn-primary, .btn-secondary, .btn-pdf {
     text-decoration: none;
     padding: 14px 32px;
     border-radius: 50px;
@@ -181,6 +182,7 @@ header {
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 }
 
@@ -207,6 +209,46 @@ header {
     background-color: var(--gold);
     color: white;
     transform: translateY(-3px);
+}
+
+/* BOTÓN DE CATÁLOGO PERSONALIZADO CON ESTILO CORREGIDO */
+.btn-pdf {
+    background-color: white !important;
+    color: var(--text-dark) !important;
+    border: 2px solid rgba(42, 27, 53, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(42, 27, 53, 0.02);
+}
+
+.btn-pdf i {
+    color: var(--gradient-start) !important; 
+    font-size: 16px;
+}
+
+.btn-pdf:hover {
+    border-color: var(--gradient-start) !important;
+    color: var(--gradient-start) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(179, 31, 162, 0.1);
+}
+
+/* BOTÓN DE CATÁLOGO PERSONALIZADO (SIN COLORES DE PDF DE OFICINA) */
+.btn-pdf {
+    background-color: white;
+    color: var(--text-dark);
+    border: 2px solid rgba(42, 27, 53, 0.15);
+    box-shadow: 0 4px 12px rgba(42, 27, 53, 0.02);
+}
+
+.btn-pdf i {
+    color: var(--gradient-start); /* Icono del color de tu marca */
+    font-size: 16px;
+}
+
+.btn-pdf:hover {
+    border-color: var(--gradient-start);
+    color: var(--gradient-start);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(179, 31, 162, 0.1);
 }
 
 /* Sección de Características */
@@ -314,11 +356,9 @@ header {
     line-height: 1.5;
 }
 
-/* ==========================================================================
-   MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO)
-   ========================================================================== */
+/* MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO) */
 .card-image-real {
-    height: 280px; /* Misma altura fija para todas las fotos */
+    height: 280px; 
     width: 100%;
     overflow: hidden;
     background-color: #f4ebfa;
@@ -327,7 +367,7 @@ header {
 .card-image-real img {
     width: 100%;
     height: 100%;
-    object-fit: cover !important; /* El !important obliga a la página a aplicarlo sí o sí */
+    object-fit: cover !important; 
     object-position: center; 
     transition: transform 0.5s ease;
 }
@@ -404,13 +444,15 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Menú Flotante Adaptado */
+/* ==========================================================================
+   MENÚ FLOTANTE MEJORADO (UBICACIÓN MÁS BAJA Y APERTURA HACIA ARRIBA EN CLIC)
+   ========================================================================== */
 .fab-container {
     position: fixed;
-    bottom: 75px; 
-    right: 30px;
+    bottom: 25px; /* BAJADO DE 75px A 25px para una posición más cómoda y discreta */
+    right: 25px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Hace que los items se desplieguen HACIA ARRIBA */
     align-items: center;
     gap: 14px;
     z-index: 999;
@@ -424,7 +466,7 @@ footer {
     justify-content: center;
     align-items: center;
     color: white;
-    box-shadow: 0 4px 15px rgba(42, 27, 53, 0.2);
+    box-shadow: 0 4px 15px rgba(42, 27, 53, 0.25);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     text-decoration: none;
@@ -447,34 +489,32 @@ footer {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Estado base oculto para los botones flotantes secundarios */
 .fab-item {
     font-size: 24px;
     opacity: 0;
-    transform: translateY(20px) scale(0);
+    transform: translateY(20px) scale(0); /* Se esconden hacia abajo */
     pointer-events: none;
 }
 
 .fab-whatsapp { background-color: #25D366; }
 .fab-instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
 
-.fab-container:hover .fab-item,
+/* CONTROL DE APERTURA POR CLIC CLASE .active (SOLUCIÓN CELULARES) */
 .fab-container.active .fab-item {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1); /* Suben suavemente al activarse */
     pointer-events: auto;
 }
 
-.fab-container:hover .fab-main,
 .fab-container.active .fab-main {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
-.fab-container:hover .icon-main,
 .fab-container.active .icon-main { 
     transform: rotate(180deg) scale(0); 
     opacity: 0;
 }
-.fab-container:hover .icon-close,
 .fab-container.active .icon-close { 
     transform: rotate(180deg) scale(1); 
     opacity: 1;
@@ -497,7 +537,7 @@ footer {
     .cta-box h2 { font-size: 24px; }
     
     .fab-container {
-        bottom: 75px;
-        right: 25px;
+        bottom: 20px; /* Posición perfecta en pantallas móviles táctiles */
+        right: 20px;
     }
 }
