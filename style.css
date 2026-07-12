@@ -1,0 +1,507 @@
+/* ==========================================================================
+   CONFIGURACIÓN GENERAL Y VARIABLES (Inspirado en tu imagen corporativa)
+   ========================================================================== */
+:root {
+    --bg-dark-purple: #351347;   /* Tono base morado de la imagen */
+    --bg-deep-purple: #230b30;   /* Tono más oscuro para contrastes */
+    --gold: #dfb247;             /* Dorado elegante del logotipo */
+    --gold-bright: #ffd778;      /* Dorado brillante para hovers */
+    --gradient-start: #d926b5;   /* Magenta de las letras superiores */
+    --gradient-end: #7934e6;     /* Azul/Púrpura del degradado */
+    --text-light: #ffffff;
+    --text-muted: #d0c4de;
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark-purple);
+    font-family: var(--font-body);
+    color: var(--text-light);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==========================================================================
+   ANIMACIONES CLAVE
+   ========================================================================== */
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulseGold {
+    0% { box-shadow: 0 0 0 0 rgba(223, 178, 71, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(223, 178, 71, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(223, 178, 71, 0); }
+}
+
+@keyframes pulseGreen {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes shineEffect {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(217, 38, 181, 0.2); }
+    50% { text-shadow: 0 0 15px rgba(217, 38, 181, 0.6), 0 0 25px rgba(121, 52, 230, 0.4); }
+    100% { text-shadow: 0 0 5px rgba(217, 38, 181, 0.2); }
+}
+
+/* Polvo de estrellas/hadas de fondo */
+.bg-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+/* ==========================================================================
+   ESTILOS DE COMPONENTES Y SECCIONES
+   ========================================================================== */
+
+/* Encabezado */
+header {
+    background-color: rgba(35, 11, 48, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(223, 178, 71, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    background: linear-gradient(45deg, var(--gradient-start), #f168d3, var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 4s infinite ease-in-out;
+}
+
+.brand-sub {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 2px;
+}
+
+/* Detalle de flor minimalista en reemplazo del botón */
+.header-flower {
+    color: var(--gold);
+    font-size: 20px;
+    opacity: 0.8;
+    animation: floatAnimation 3s infinite ease-in-out;
+}
+
+/* Sección Hero */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.wings-icon {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    animation: floatAnimation 4s infinite ease-in-out;
+}
+
+.wings-icon .left-wing {
+    transform: scaleX(-1) rotate(-25deg);
+    background: linear-gradient(var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.wings-icon .right-wing {
+    transform: rotate(-25deg);
+    background: linear-gradient(var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    padding: 0 40px;
+}
+
+/* Botones */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary, .btn-whatsapp-large {
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(217, 38, 181, 0.3);
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+    transform: skewX(-25deg);
+    animation: shineEffect 3s infinite;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    animation: pulseGold 2.5s infinite;
+}
+
+.btn-secondary:hover {
+    background-color: var(--gold);
+    color: var(--bg-deep-purple);
+    transform: translateY(-3px);
+}
+
+/* Sección de Características */
+.features {
+    background-color: var(--bg-deep-purple);
+    padding: 60px 8%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    border-top: 1px solid rgba(223, 178, 71, 0.1);
+    border-bottom: 1px solid rgba(223, 178, 71, 0.1);
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 40px 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.icon-box {
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Sección Catálogo */
+.catalog {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 36px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    font-size: 15px;
+}
+
+.grid-catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.catalog-item {
+    background-color: var(--bg-deep-purple);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(223, 178, 71, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card-image-placeholder {
+    height: 300px;
+    background: linear-gradient(135deg, #441c59, #230b30);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(223, 178, 71, 0.4);
+    gap: 15px;
+    position: relative;
+}
+
+.card-image-placeholder i {
+    font-size: 48px;
+    transition: transform 0.5s ease;
+}
+
+.card-image-placeholder span {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.catalog-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--gold);
+}
+
+.catalog-item:hover .card-image-placeholder i {
+    transform: rotate(15deg) scale(1.1);
+    color: var(--gold);
+}
+
+.catalog-info {
+    padding: 25px;
+}
+
+.catalog-info h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--gold);
+}
+
+.catalog-info p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Llamado a la Acción (CTA) */
+.cta-section {
+    padding: 40px 8% 80px 8%;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, rgba(53, 19, 71, 0.9), rgba(35, 11, 48, 0.9));
+    border: 2px solid var(--gold);
+    padding: 50px 40px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cta-box h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-whatsapp-large {
+    background-color: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-large:hover {
+    background-color: #20ba5a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* Pie de Página */
+footer {
+    background-color: #160420;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-note {
+    color: var(--gold);
+    margin-top: 5px;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    animation: pulseGreen 2s infinite;
+}
+
+.whatsapp-floating:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* ==========================================================================
+   RESPONSIVO / DISEÑO MÓVIL (Títulos y Flores Centrados Completamente)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 25px 5%;
+        flex-direction: column;  /* Organiza título arriba y flor abajo */
+        gap: 12px;               /* Separación perfecta */
+        text-align: center;      
+    }
+
+    .logo-container {
+        align-items: center;     /* Centrado de los textos de marca */
+    }
+
+    .header-flower {
+        margin: 0 auto;          /* Centra el icono floral inferior */
+        font-size: 18px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        padding: 0;
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .cta-box h2 {
+        font-size: 24px;
+    }
+
+    .brand-name {
+        font-size: 22px;
+    }
+}
