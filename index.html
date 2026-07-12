@@ -6,7 +6,7 @@
     <title>Angels Eternals Flowers | Flores Eternas de Limpiapipas</title>
     
     <!-- ENLACE PARA TU NUEVO LOGO REDONDEADO CON BORDES DORADOS -->
-   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     
     <link rel="stylesheet" href="style.css">
     <!-- Iconos de FontAwesome -->
@@ -76,10 +76,10 @@
         <p class="section-subtitle">Explora los diseños más pedidos. ¡Podemos hacer la figura o flor que imagines!</p>
         
         <div class="grid-catalog">
+            <!-- CATEGORÍA 1: ROSAS -->
             <div class="catalog-item">
-                <div class="card-image-placeholder">
-                    <i class="fa-solid fa-seedling"></i>
-                    <span>Ramos de Rosas Eternas</span>
+                <div class="card-image-real">
+                    <img src="imagenes/rosas.jpeg" alt="Ramos de Rosas Eternas de limpiapipas">
                 </div>
                 <div class="catalog-info">
                     <h3>Rosas de Limpiapipas</h3>
@@ -87,10 +87,10 @@
                 </div>
             </div>
 
+            <!-- CATEGORÍA 2: TULIPANES -->
             <div class="catalog-item">
-                <div class="card-image-placeholder">
-                    <i class="fa-solid fa-bacterium"></i>
-                    <span>Tulipanes Luminosos</span>
+                <div class="card-image-real">
+                    <img src="imagenes/tulipan-luminoso.jpeg" alt="Tulipanes e individuales luminosos de limpiapipas">
                 </div>
                 <div class="catalog-info">
                     <h3>Tulipanes e Individuales</h3>
@@ -98,14 +98,25 @@
                 </div>
             </div>
 
+            <!-- CATEGORÍA 3: RAMO SHREK Y FIONA -->
             <div class="catalog-item">
-                <div class="card-image-placeholder">
-                    <i class="fa-solid fa-face-smile-beam"></i>
-                    <span>Figuras Personalizadas</span>
+                <div class="card-image-real">
+                    <img src="imagenes/shrek-fiona.jpeg" alt="Ramo de Shrek y Fiona de limpiapipas">
                 </div>
                 <div class="catalog-info">
-                    <h3>Figuras & Personajes</h3>
-                    <p>Llaveros, personajes animados de películas y pequeños detalles creativos hechos 100% a mano.</p>
+                    <h3>Ramos Temáticos</h3>
+                    <p>Tus personajes favoritos adaptados a ramos mágicos con girasoles y margaritas hechas 100% a mano.</p>
+                </div>
+            </div>
+
+            <!-- CATEGORÍA 4: GUERRERO / MANDALORIAN -->
+            <div class="catalog-item">
+                <div class="card-image-real">
+                    <img src="imagenes/guerrero.jpeg" alt="Figura de acción coleccionable de limpiapipas">
+                </div>
+                <div class="catalog-info">
+                    <h3>Figuras Coleccionables</h3>
+                    <p>Diseños detallados con estructuras firmes y texturas imponentes. El regalo de colección perfecto.</p>
                 </div>
             </div>
         </div>
@@ -129,18 +140,26 @@
     </footer>
 
     <!-- Menú Expandible Flotante (Instagram + WhatsApp) -->
-    <div class="fab-container">
+    <div class="fab-container" id="fabContainer">
         <a href="https://www.instagram.com/angels_eternals_flowers_?igsh=YXQ3M3MyaHlobnZi" target="_blank" class="fab-item fab-instagram" title="Síguenos en Instagram">
             <i class="fab fa-instagram"></i>
         </a>
         <a href="https://wa.me/+573217583429" target="_blank" class="fab-item fab-whatsapp" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <div class="fab-main">
+        <div class="fab-main" onclick="toggleMenu()">
             <i class="fa-solid fa-star icon-main"></i>
             <i class="fa-solid fa-xmark icon-close"></i>
         </div>
     </div>
+
+    <!-- SCRIPT DE INTERACCIÓN MÓVIL -->
+    <script>
+    function toggleMenu() {
+        const container = document.getElementById('fabContainer');
+        container.classList.toggle('active');
+    }
+    </script>
 
 </body>
 </html>
