@@ -102,7 +102,7 @@ header {
     letter-spacing: 4px;
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
-    background-clip: text; /* <--- AGREGA ESTA LÍNEA */
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .brand-sub {
@@ -156,7 +156,7 @@ header {
 .gradient-text {
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
-    background-clip: text; /* <--- AGREGA ESTA LÍNEA */
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
@@ -421,11 +421,11 @@ footer {
 }
 
 /* ==========================================================================
-   MENÚ FLOTANTE INTERACTIVO (Doble canal)
+   MENÚ FLOTANTE INTERACTIVO (CORREGIDO PARA ADAPTACIÓN MÓVIL)
    ========================================================================== */
 .fab-container {
     position: fixed;
-    bottom: 30px;
+    bottom: 75px; /* Bajado una pulgada exacta para que no estorbe al pulgar en celulares */
     right: 30px;
     display: flex;
     flex-direction: column-reverse;
@@ -451,9 +451,20 @@ footer {
 .fab-main {
     background: linear-gradient(135deg, var(--gold), #b88e2f);
     font-size: 22px;
+    position: relative;
 }
 
-.fab-main .icon-close { display: none; }
+/* Corrección de transiciones limpias entre iconos */
+.fab-main .icon-close {
+    position: absolute;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-main .icon-main {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
 .fab-item {
     font-size: 24px;
@@ -465,20 +476,30 @@ footer {
 .fab-whatsapp { background-color: #25D366; }
 .fab-instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
 
-/* Activación al pasar mouse o tocar */
-.fab-container:hover .fab-item {
+/* ACTIVACIÓN DE DESPLIEGUE (Hover en PC / .active vía Script en Celular) */
+.fab-container:hover .fab-item,
+.fab-container.active .fab-item {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
-.fab-container:hover .fab-main {
-    transform: rotate(135deg);
+.fab-container:hover .fab-main,
+.fab-container.active .fab-main {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
-.fab-container:hover .icon-main { display: none; }
-.fab-container:hover .icon-close { display: block; transform: rotate(-135deg); }
+/* Efecto rotación elegante de Estrella a X */
+.fab-container:hover .icon-main,
+.fab-container.active .icon-main { 
+    transform: rotate(180deg) scale(0); 
+    opacity: 0;
+}
+.fab-container:hover .icon-close,
+.fab-container.active .icon-close { 
+    transform: rotate(180deg) scale(1); 
+    opacity: 1;
+}
 
 .fab-item:hover { transform: scale(1.12); }
 
@@ -498,8 +519,9 @@ footer {
     .cta-box { padding: 35px 20px; }
     .cta-box h2 { font-size: 24px; }
     
+    /* El contenedor en pantallas móviles mantiene la altura ideal preestablecida */
     .fab-container {
-        bottom: 25px;
+        bottom: 75px;
         right: 25px;
     }
 }
