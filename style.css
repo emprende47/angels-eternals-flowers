@@ -1,15 +1,15 @@
 /* ==========================================================================
-   CONFIGURACIÓN GENERAL Y VARIABLES (Inspirado en tu imagen corporativa)
+   CONFIGURACIÓN GENERAL Y VARIABLES (Paleta Premium Luminosa)
    ========================================================================== */
 :root {
-    --bg-dark-purple: #351347;   /* Tono base morado de la imagen */
-    --bg-deep-purple: #230b30;   /* Tono más oscuro para contrastes */
-    --gold: #dfb247;             /* Dorado elegante del logotipo */
-    --gold-bright: #ffd778;      /* Dorado brillante para hovers */
-    --gradient-start: #d926b5;   /* Magenta de las letras superiores */
-    --gradient-end: #7934e6;     /* Azul/Púrpura del degradado */
-    --text-light: #ffffff;
-    --text-muted: #d0c4de;
+    --bg-main: #faf8f6;          /* Blanco marfil cálido, limpio y elegante */
+    --bg-soft-purple: #f3eff7;   /* Lavanda extremadamente sutil para contrastes */
+    --text-dark: #2a1b35;        /* Morado muy oscuro para lectura cómoda */
+    --text-muted: #665575;       /* Morado grisáceo para textos secundarios */
+    --gold: #cfa12f;             /* Dorado elegante y visible */
+    --gold-dark: #a37a1a;
+    --gradient-start: #b31fa2;   /* Fucsia/Morado de acento para títulos */
+    --gradient-end: #6124c2;     
     --font-heading: 'Cinzel', serif;
     --font-body: 'Montserrat', sans-serif;
 }
@@ -22,9 +22,9 @@
 }
 
 body {
-    background-color: var(--bg-dark-purple);
+    background-color: var(--bg-main);
     font-family: var(--font-body);
-    color: var(--text-light);
+    color: var(--text-dark);
     overflow-x: hidden;
     position: relative;
 }
@@ -34,19 +34,19 @@ body {
    ========================================================================== */
 @keyframes floatAnimation {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-8px); }
     100% { transform: translateY(0px); }
 }
 
 @keyframes pulseGold {
-    0% { box-shadow: 0 0 0 0 rgba(223, 178, 71, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(223, 178, 71, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(223, 178, 71, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(207, 161, 47, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(207, 161, 47, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(207, 161, 47, 0); }
 }
 
-@keyframes pulseGreen {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-    70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+@keyframes pulseWhatsApp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
@@ -55,13 +55,7 @@ body {
     100% { left: 100%; }
 }
 
-@keyframes textGlow {
-    0% { text-shadow: 0 0 5px rgba(217, 38, 181, 0.2); }
-    50% { text-shadow: 0 0 15px rgba(217, 38, 181, 0.6), 0 0 25px rgba(121, 52, 230, 0.4); }
-    100% { text-shadow: 0 0 5px rgba(217, 38, 181, 0.2); }
-}
-
-/* Polvo de estrellas/hadas de fondo */
+/* Destellos dorados muy sutiles de fondo */
 .bg-stars {
     position: fixed;
     top: 0;
@@ -69,30 +63,31 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-    background-size: 550px 550px, 350px 350px;
-    background-position: 0 0, 40px 60px;
-    opacity: 0.15;
+        radial-gradient(rgba(207, 161, 47, 0.15) 1.5px, transparent 40px),
+        radial-gradient(rgba(179, 31, 162, 0.08) 1px, transparent 30px);
+    background-size: 400px 400px, 280px 280px;
+    background-position: 0 0, 50px 50px;
+    opacity: 0.7;
     z-index: -1;
 }
 
 /* ==========================================================================
-   ESTILOS DE COMPONENTES Y SECCIONES
+   ESTILOS DE COMPONENTES
    ========================================================================== */
 
 /* Encabezado */
 header {
-    background-color: rgba(35, 11, 48, 0.85);
-    backdrop-filter: blur(10px);
+    background-color: rgba(250, 248, 246, 0.9);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 18px 8%;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(223, 178, 71, 0.2);
+    border-bottom: 1px solid rgba(207, 161, 47, 0.15);
+    box-shadow: 0 4px 20px rgba(42, 27, 53, 0.03);
 }
 
 .logo-container {
@@ -102,40 +97,37 @@ header {
 
 .brand-name {
     font-family: var(--font-heading);
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: 4px;
-    background: linear-gradient(45deg, var(--gradient-start), #f168d3, var(--gradient-end));
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
+    background-clip: text; /* <--- AGREGA ESTA LÍNEA */
     -webkit-text-fill-color: transparent;
-    animation: textGlow 4s infinite ease-in-out;
 }
-
 .brand-sub {
     font-family: var(--font-heading);
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--gold);
-    margin-top: 2px;
+    color: var(--gold-dark);
+    margin-top: 1px;
+    font-weight: 600;
 }
 
-/* Detalle de flor minimalista en reemplazo del botón */
 .header-flower {
     color: var(--gold);
     font-size: 20px;
-    opacity: 0.8;
     animation: floatAnimation 3s infinite ease-in-out;
 }
 
 /* Sección Hero */
 .hero {
-    min-height: 85vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 60px 20px;
-    position: relative;
 }
 
 .hero-content {
@@ -143,41 +135,28 @@ header {
 }
 
 .wings-icon {
-    margin-bottom: 25px;
-    font-size: 28px;
-    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 26px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    animation: floatAnimation 4s infinite ease-in-out;
-}
-
-.wings-icon .left-wing {
-    transform: scaleX(-1) rotate(-25deg);
-    background: linear-gradient(var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.wings-icon .right-wing {
-    transform: rotate(-25deg);
-    background: linear-gradient(var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    gap: 12px;
+    color: var(--gold);
 }
 
 .hero h1 {
     font-family: var(--font-heading);
-    font-size: 48px;
-    line-height: 1.2;
+    font-size: 46px;
+    line-height: 1.25;
     margin-bottom: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
 }
 
 .gradient-text {
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
+    background-clip: text; /* <--- AGREGA ESTA LÍNEA */
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
@@ -186,11 +165,11 @@ header {
     font-size: 16px;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 40px;
-    padding: 0 40px;
+    margin-bottom: 35px;
+    padding: 0 50px;
 }
 
-/* Botones */
+/* Botones Base */
 .hero-buttons {
     display: flex;
     justify-content: center;
@@ -198,89 +177,81 @@ header {
     flex-wrap: wrap;
 }
 
-.btn-primary, .btn-secondary, .btn-whatsapp-large {
+.btn-primary, .btn-secondary {
     text-decoration: none;
-    padding: 15px 35px;
+    padding: 14px 32px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 15px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-primary {
     background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
     color: white;
     border: none;
+    box-shadow: 0 4px 15px rgba(179, 31, 162, 0.2);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(217, 38, 181, 0.3);
-}
-
-.btn-primary::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-    transform: skewX(-25deg);
-    animation: shineEffect 3s infinite;
+    box-shadow: 0 8px 20px rgba(179, 31, 162, 0.35);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--gold);
+    color: var(--gold-dark);
     border: 2px solid var(--gold);
     animation: pulseGold 2.5s infinite;
 }
 
 .btn-secondary:hover {
     background-color: var(--gold);
-    color: var(--bg-deep-purple);
+    color: white;
     transform: translateY(-3px);
 }
 
-/* Sección de Características */
+/* Sección de Características (Fondo Lavanda Claro) */
 .features {
-    background-color: var(--bg-deep-purple);
-    padding: 60px 8%;
+    background-color: var(--bg-soft-purple);
+    padding: 70px 8%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
-    border-top: 1px solid rgba(223, 178, 71, 0.1);
-    border-bottom: 1px solid rgba(223, 178, 71, 0.1);
+    border-top: 1px solid rgba(207, 161, 47, 0.1);
+    border-bottom: 1px solid rgba(207, 161, 47, 0.1);
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 40px 25px;
-    border-radius: 15px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 18px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(42, 27, 53, 0.02);
+    border: 1px solid rgba(179, 31, 162, 0.05);
+    transition: all 0.3s ease;
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     border-color: var(--gold);
+    box-shadow: 0 8px 25px rgba(207, 161, 47, 0.15);
 }
 
 .icon-box {
-    font-size: 32px;
+    font-size: 30px;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .feature-card h3 {
     font-family: var(--font-heading);
     font-size: 18px;
     margin-bottom: 12px;
-    letter-spacing: 1px;
+    color: var(--text-dark);
 }
 
 .feature-card p {
@@ -299,14 +270,14 @@ header {
     font-family: var(--font-heading);
     font-size: 36px;
     margin-bottom: 10px;
-    letter-spacing: 2px;
-    color: var(--text-light);
+    letter-spacing: 1px;
+    color: var(--text-dark);
 }
 
 .section-subtitle {
     text-align: center;
     color: var(--text-muted);
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     font-size: 15px;
 }
 
@@ -317,45 +288,48 @@ header {
 }
 
 .catalog-item {
-    background-color: var(--bg-deep-purple);
+    background-color: white;
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid rgba(223, 178, 71, 0.1);
+    box-shadow: 0 5px 20px rgba(42, 27, 53, 0.04);
+    border: 1px solid rgba(179, 31, 162, 0.06);
     transition: all 0.3s ease;
 }
 
 .card-image-placeholder {
-    height: 300px;
-    background: linear-gradient(135deg, #441c59, #230b30);
+    height: 280px;
+    background: linear-gradient(135deg, #f4ebfa, #e6daf2);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgba(223, 178, 71, 0.4);
-    gap: 15px;
-    position: relative;
+    color: var(--text-muted);
+    gap: 12px;
 }
 
 .card-image-placeholder i {
-    font-size: 48px;
-    transition: transform 0.5s ease;
+    font-size: 44px;
+    color: var(--gradient-start);
+    opacity: 0.7;
+    transition: transform 0.4s ease;
 }
 
 .card-image-placeholder span {
     font-size: 12px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    font-weight: 500;
 }
 
 .catalog-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(113, 80, 145, 0.15);
     border-color: var(--gold);
 }
 
 .catalog-item:hover .card-image-placeholder i {
-    transform: rotate(15deg) scale(1.1);
-    color: var(--gold);
+    transform: scale(1.1) rotate(10deg);
+    opacity: 1;
 }
 
 .catalog-info {
@@ -365,8 +339,8 @@ header {
 .catalog-info h3 {
     font-family: var(--font-heading);
     font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--gold);
+    margin-bottom: 8px;
+    color: var(--text-dark);
 }
 
 .catalog-info p {
@@ -375,45 +349,53 @@ header {
     line-height: 1.5;
 }
 
-/* Llamado a la Acción (CTA) */
+/* ==========================================================================
+   SECCIÓN CTA - SOLICITAR PEDIDO CORREGIDO
+   ========================================================================== */
 .cta-section {
-    padding: 40px 8% 80px 8%;
+    padding: 20px 8% 80px 8%;
 }
 
 .cta-box {
-    background: linear-gradient(135deg, rgba(53, 19, 71, 0.9), rgba(35, 11, 48, 0.9));
+    background: white;
     border: 2px solid var(--gold);
     padding: 50px 40px;
-    border-radius: 30px;
+    border-radius: 24px;
     text-align: center;
-    max-width: 900px;
+    max-width: 850px;
     margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(207, 161, 47, 0.1);
 }
 
 .cta-box h2 {
     font-family: var(--font-heading);
     font-size: 32px;
     margin-bottom: 15px;
+    color: var(--text-dark);
 }
 
 .cta-box p {
     color: var(--text-muted);
     font-size: 15px;
     line-height: 1.6;
-    margin-bottom: 35px;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
 }
 
+/* El botón grande de WhatsApp arreglado */
 .btn-whatsapp-large {
-    background-color: #25D366;
-    color: white;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 16px;
-    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    background-color: #25D366;
+    color: white !important; /* Fuerza el color blanco del texto */
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    animation: pulseWhatsApp 2.5s infinite;
 }
 
 .btn-whatsapp-large:hover {
@@ -424,84 +406,100 @@ header {
 
 /* Pie de Página */
 footer {
-    background-color: #160420;
+    background-color: #1b1221;
     text-align: center;
-    padding: 40px 20px;
+    padding: 35px 20px;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.4);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .footer-note {
     color: var(--gold);
-    margin-top: 5px;
+    margin-top: 6px;
     font-family: var(--font-heading);
     letter-spacing: 1px;
 }
 
-/* Botón Flotante de WhatsApp */
-.whatsapp-floating {
+/* ==========================================================================
+   MENÚ FLOTANTE INTERACTIVO (Doble canal)
+   ========================================================================== */
+.fab-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 14px;
+    z-index: 999;
+}
+
+.fab-main, .fab-item {
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(42, 27, 53, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
     text-decoration: none;
-    z-index: 999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    animation: pulseGreen 2s infinite;
 }
 
-.whatsapp-floating:hover {
-    transform: scale(1.1) rotate(10deg);
+.fab-main {
+    background: linear-gradient(135deg, var(--gold), #b88e2f);
+    font-size: 22px;
 }
+
+.fab-main .icon-close { display: none; }
+
+.fab-item {
+    font-size: 24px;
+    opacity: 0;
+    transform: translateY(20px) scale(0);
+    pointer-events: none;
+}
+
+.fab-whatsapp { background-color: #25D366; }
+.fab-instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
+
+/* Activación al pasar mouse o tocar */
+.fab-container:hover .fab-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.fab-container:hover .fab-main {
+    transform: rotate(135deg);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+.fab-container:hover .icon-main { display: none; }
+.fab-container:hover .icon-close { display: block; transform: rotate(-135deg); }
+
+.fab-item:hover { transform: scale(1.12); }
 
 /* ==========================================================================
-   RESPONSIVO / DISEÑO MÓVIL (Títulos y Flores Centrados Completamente)
+   DISEÑO ADAPTATIVO MÓVIL
    ========================================================================== */
 @media (max-width: 768px) {
     header {
-        padding: 25px 5%;
-        flex-direction: column;  /* Organiza título arriba y flor abajo */
-        gap: 12px;               /* Separación perfecta */
-        text-align: center;      
+        padding: 20px 5%;
+        flex-direction: column;  
+        gap: 10px;               
     }
 
-    .logo-container {
-        align-items: center;     /* Centrado de los textos de marca */
-    }
-
-    .header-flower {
-        margin: 0 auto;          /* Centra el icono floral inferior */
-        font-size: 18px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        padding: 0;
-        font-size: 14px;
-    }
-
-    .section-title {
-        font-size: 28px;
-    }
-
-    .cta-box h2 {
-        font-size: 24px;
-    }
-
-    .brand-name {
-        font-size: 22px;
+    .hero h1 { font-size: 32px; }
+    .hero p { padding: 0; font-size: 14px; }
+    .section-title { font-size: 28px; }
+    .cta-box { padding: 35px 20px; }
+    .cta-box h2 { font-size: 24px; }
+    
+    .fab-container {
+        bottom: 25px;
+        right: 25px;
     }
 }
