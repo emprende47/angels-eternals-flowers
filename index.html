@@ -44,6 +44,12 @@
             <p>Creamos hermosas flores eternas hechas a mano con limpiapipas y figuras personalizadas únicas. El regalo perfecto y delicado que jamás se marchitará.</p>
             <div class="hero-buttons">
                 <a href="#catalogo" class="btn-primary">Ver Modelos</a>
+                
+                <!-- BOTÓN DE CATÁLOGO SIN ICONO DE PDF (ICONO DE CATÁLOGO ABIERTO PREMIUM) -->
+                <a href="documentos/catalogo-angels.pdf" target="_blank" class="btn-pdf">
+                    <i class="fa-solid fa-book-open"></i> Descargar Catálogo
+                </a>
+
                 <a href="https://wa.me/+573217583429" target="_blank" class="btn-secondary">
                     <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
                 </a>
@@ -112,7 +118,7 @@
             <!-- CATEGORÍA 4: GUERRERO / MANDALORIAN -->
             <div class="catalog-item">
                 <div class="card-image-real">
-                    <img src="imagenes/guerrero.jpeg" alt="Figura de acción coleccionable de limpiapipas">
+                    <img src="imagenes/guerrero.jpg" alt="Figura de acción coleccionable de limpiapipas">
                 </div>
                 <div class="catalog-info">
                     <h3>Figuras Coleccionables</h3>
@@ -122,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Sección de Llamado a la Acción (CTA) -->
+    <!-- Sección de Llamado a la Action (CTA) -->
     <section class="cta-section">
         <div class="cta-box">
             <h2>¿Tienes una idea en mente?</h2>
@@ -139,7 +145,7 @@
         <p class="footer-note">Diseños mágicos hechos a mano.</p>
     </footer>
 
-    <!-- Menú Expandible Flotante (Instagram + WhatsApp) -->
+    <!-- Menú Flotante Corregido para Toques Manuales -->
     <div class="fab-container" id="fabContainer">
         <a href="https://www.instagram.com/angels_eternals_flowers_?igsh=YXQ3M3MyaHlobnZi" target="_blank" class="fab-item fab-instagram" title="Síguenos en Instagram">
             <i class="fab fa-instagram"></i>
@@ -147,18 +153,27 @@
         <a href="https://wa.me/+573217583429" target="_blank" class="fab-item fab-whatsapp" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <div class="fab-main" onclick="toggleMenu()">
+        <div class="fab-main" id="fabMainBtn">
             <i class="fa-solid fa-star icon-main"></i>
             <i class="fa-solid fa-xmark icon-close"></i>
         </div>
     </div>
 
-    <!-- SCRIPT DE INTERACCIÓN MÓVIL -->
+    <!-- SCRIPT CORREGIDO PARA CELULARES (ABRE Y CIERRA CON SEGURIDAD) -->
     <script>
-    function toggleMenu() {
+    document.getElementById('fabMainBtn').addEventListener('click', function(e) {
+        e.stopPropagation();
         const container = document.getElementById('fabContainer');
         container.classList.toggle('active');
-    }
+    });
+
+    // Cerrar el menú si el usuario toca cualquier otra parte de la pantalla
+    document.addEventListener('click', function() {
+        const container = document.getElementById('fabContainer');
+        if(container.classList.contains('active')) {
+            container.classList.remove('active');
+        }
+    });
     </script>
 
 </body>
