@@ -50,11 +50,6 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-@keyframes shineEffect {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
-
 /* Destellos dorados muy sutiles de fondo */
 .bg-stars {
     position: fixed;
@@ -214,7 +209,7 @@ header {
     transform: translateY(-3px);
 }
 
-/* Sección de Características (Fondo Lavanda Claro) */
+/* Sección de Características */
 .features {
     background-color: var(--bg-soft-purple);
     padding: 70px 8%;
@@ -283,7 +278,7 @@ header {
 
 .grid-catalog {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
 }
 
@@ -296,40 +291,10 @@ header {
     transition: all 0.3s ease;
 }
 
-.card-image-placeholder {
-    height: 280px;
-    background: linear-gradient(135deg, #f4ebfa, #e6daf2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-muted);
-    gap: 12px;
-}
-
-.card-image-placeholder i {
-    font-size: 44px;
-    color: var(--gradient-start);
-    opacity: 0.7;
-    transition: transform 0.4s ease;
-}
-
-.card-image-placeholder span {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
 .catalog-item:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(113, 80, 145, 0.15);
     border-color: var(--gold);
-}
-
-.catalog-item:hover .card-image-placeholder i {
-    transform: scale(1.1) rotate(10deg);
-    opacity: 1;
 }
 
 .catalog-info {
@@ -350,8 +315,28 @@ header {
 }
 
 /* ==========================================================================
-   SECCIÓN CTA - SOLICITAR PEDIDO CORREGIDO
+   MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO)
    ========================================================================== */
+.card-image-real {
+    height: 280px; /* Misma altura fija y simétrica para todas las fotos */
+    width: 100%;
+    overflow: hidden;
+    background-color: #f4ebfa;
+}
+
+.card-image-real img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la foto se deforme o estire */
+    object-position: center; /* Enfoca exactamente el centro de las flores y figuras */
+    transition: transform 0.5s ease;
+}
+
+.catalog-item:hover .card-image-real img {
+    transform: scale(1.08); /* Zoom sutil premium */
+}
+
+/* Sección CTA - Solicitar Pedido */
 .cta-section {
     padding: 20px 8% 80px 8%;
 }
@@ -381,7 +366,6 @@ header {
     margin-bottom: 30px;
 }
 
-/* El botón grande de WhatsApp arreglado */
 .btn-whatsapp-large {
     text-decoration: none;
     padding: 16px 36px;
@@ -393,7 +377,7 @@ header {
     align-items: center;
     gap: 10px;
     background-color: #25D366;
-    color: white !important; /* Fuerza el color blanco del texto */
+    color: white !important;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     animation: pulseWhatsApp 2.5s infinite;
 }
@@ -420,12 +404,10 @@ footer {
     letter-spacing: 1px;
 }
 
-/* ==========================================================================
-   MENÚ FLOTANTE INTERACTIVO (CORREGIDO PARA ADAPTACIÓN MÓVIL)
-   ========================================================================== */
+/* Menú Flotante Adaptado */
 .fab-container {
     position: fixed;
-    bottom: 75px; /* Bajado una pulgada exacta para que no estorbe al pulgar en celulares */
+    bottom: 75px; 
     right: 30px;
     display: flex;
     flex-direction: column-reverse;
@@ -454,7 +436,6 @@ footer {
     position: relative;
 }
 
-/* Corrección de transiciones limpias entre iconos */
 .fab-main .icon-close {
     position: absolute;
     transform: scale(0);
@@ -476,7 +457,6 @@ footer {
 .fab-whatsapp { background-color: #25D366; }
 .fab-instagram { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
 
-/* ACTIVACIÓN DE DESPLIEGUE (Hover en PC / .active vía Script en Celular) */
 .fab-container:hover .fab-item,
 .fab-container.active .fab-item {
     opacity: 1;
@@ -489,7 +469,6 @@ footer {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
-/* Efecto rotación elegante de Estrella a X */
 .fab-container:hover .icon-main,
 .fab-container.active .icon-main { 
     transform: rotate(180deg) scale(0); 
@@ -503,9 +482,7 @@ footer {
 
 .fab-item:hover { transform: scale(1.12); }
 
-/* ==========================================================================
-   DISEÑO ADAPTATIVO MÓVIL
-   ========================================================================== */
+/* Diseño Adaptativo Móvil */
 @media (max-width: 768px) {
     header {
         padding: 20px 5%;
@@ -519,9 +496,29 @@ footer {
     .cta-box { padding: 35px 20px; }
     .cta-box h2 { font-size: 24px; }
     
-    /* El contenedor en pantallas móviles mantiene la altura ideal preestablecida */
     .fab-container {
         bottom: 75px;
         right: 25px;
     }
+}
+/* ==========================================================================
+   MÓDULO DE IMÁGENES REALES (CORRECCIÓN TOTAL DE TAMAÑO)
+   ========================================================================== */
+.card-image-real {
+    height: 280px; /* Misma altura fija para todas las fotos */
+    width: 100%;
+    overflow: hidden;
+    background-color: #f4ebfa;
+}
+
+.card-image-real img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important; /* El !important obliga a la página a aplicarlo sí o sí */
+    object-position: center; 
+    transition: transform 0.5s ease;
+}
+
+.catalog-item:hover .card-image-real img {
+    transform: scale(1.08); 
 }
